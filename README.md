@@ -6,7 +6,9 @@ Merger Reality Check is a small classroom website about two ways a deal headline
 
 ### Bootstrapping simulator
 
-Market value = earnings × P/E. Share price = market value ÷ shares. The purchase price is the target's market value plus the premium. New buyer shares = the share-funded portion of the purchase price ÷ the buyer's share price. Pro forma EPS = combined earnings ÷ combined shares. EPS accretion = pro forma EPS ÷ buyer standalone EPS − 1. Cash consideration is ignored in this simple model. With the default inputs, EPS rises 20% because A's 12× P/E shares acquire earnings priced at B's 8× P/E.
+Market value = earnings × P/E. Share price = market value ÷ shares. The purchase price is the target's market value plus the premium. New buyer shares = the share-funded portion of the purchase price ÷ the buyer's share price. After-tax synergies = pre-tax synergies × (1 − tax rate). Pro forma EPS = (combined earnings + after-tax synergies) ÷ combined shares. EPS accretion = pro forma EPS ÷ buyer standalone EPS − 1. Cash consideration is ignored in this simple model. With zero synergies and the default inputs, EPS rises 20% because A's 12× P/E shares acquire earnings priced at B's 8× P/E.
+
+The combined company is valued at either the blended P/E of A and B (the default) or A's P/E. Combined value = combined earnings × selected P/E. Value created = combined value − A's market value − B's market value. A's shareholders' wealth change = their share of the combined shares × combined value − A's original market value. With 20 annual pre-tax synergy units and a 25% tax rate, after-tax synergies are 15, pro forma EPS is 12.9, and A's shareholders' wealth rises by 90 at the blended 10× P/E. Using A's higher P/E assumes a higher market valuation for all combined earnings; this changes perceived value independently from the synergy cash flow.
 
 ### Merger of equals tester
 
