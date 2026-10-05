@@ -33,11 +33,14 @@ export default function BootstrappingTab() {
   const result = checked.parsed ? calculateBootstrapping(checked.parsed) : null;
   const update = (key) => (value) => setValues((current) => ({ ...current, [key]: value }));
   const isBootstrap = result && result.accretionPercent > 0 && checked.parsed.peA > checked.parsed.peB;
-  const message = isBootstrap
-    ? "EPS goes up only because A's shares are valued at a higher P/E than B's. No real value has been created unless the market keeps valuing the combined earnings at A's high P/E."
-    : checked.parsed.peA <= checked.parsed.peB
-      ? "This is not bootstrapping: A's P/E is lower than or equal to B's, so EPS may be flat or dilutive."
-      : "A's higher P/E does not make this deal accretive at these inputs; the purchase premium or share mix may be too high.";
+  let message = '';
+  if (result && isBootstrap) {
+    message = "EPS goes up only because A's shares are valued at a higher P/E than B's. No real value has been created unless the market keeps valuing the combined earnings at A's high P/E.";
+  } else if (result && checked.parsed.peA <= checked.parsed.peB) {
+    message = "This is not bootstrapping: A's P/E is lower than or equal to B's, so EPS may be flat or dilutive.";
+  } else if (result) {
+    message = "A's higher P/E does not make this deal accretive at these inputs; the purchase premium or share mix may be too high.";
+  }
 
   return <>
     <section className="tool-heading"><div><p className="eyebrow">Tool 01 · Share-funded acquisition</p><h2>The EPS illusion</h2><p>A high-multiple buyer can report higher EPS after buying a lower-multiple target, even without creating real value.</p></div><span className="tool-index">01 / 02</span></section>
