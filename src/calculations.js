@@ -1,5 +1,5 @@
-// Calculate values and per-share results for a share-funded acquisition.
-export function calculateBootstrapping({ earningsA, sharesA, peA, earningsB, sharesB, peB, premiumPercent, sharesPercent }) {
+// Calculate acquisition EPS, synergy value, and the change in A holders' wealth.
+export function calculateBootstrapping({ earningsA, sharesA, peA, earningsB, sharesB, peB, premiumPercent, sharesPercent, annualPretaxSynergies = 0, taxRate = 25, valuationMethod = 'blended' }) {
   const marketValueA = earningsA * peA;
   const marketValueB = earningsB * peB;
   const sharePriceA = marketValueA / sharesA;
@@ -7,12 +7,19 @@ export function calculateBootstrapping({ earningsA, sharesA, peA, earningsB, sha
   const purchasePrice = marketValueB * (1 + premiumPercent / 100);
   const stockValue = purchasePrice * (sharesPercent / 100);
   const newShares = stockValue / sharePriceA;
-  const combinedEarnings = earningsA + earningsB;
+  const afterTaxSynergies = annualPretaxSynergies * (1 - taxRate / 100);
+  const combinedEarnings = earningsA + earningsB + afterTaxSynergies;
   const combinedShares = sharesA + newShares;
   const standaloneEps = earningsA / sharesA;
   const proFormaEps = combinedEarnings / combinedShares;
   const accretionPercent = (proFormaEps / standaloneEps - 1) * 100;
-  return { marketValueA, marketValueB, sharePriceA, sharePriceB, purchasePrice, stockValue, newShares, combinedEarnings, combinedShares, standaloneEps, proFormaEps, accretionPercent };
+  const blendedPe = (marketValueA + marketValueB) / (earningsA + earningsB);
+  const valuationPe = valuationMethod === 'buyer' ? peA : blendedPe;
+  const combinedValue = combinedEarnings * valuationPe;
+  const valueCreated = combinedValue - marketValueA - marketValueB;
+  const buyerOwnership = sharesA / combinedShares;
+  const changeInAShareholderWealth = buyerOwnership * combinedValue - marketValueA;
+  return { marketValueA, marketValueB, sharePriceA, sharePriceB, purchasePrice, stockValue, newShares, afterTaxSynergies, combinedEarnings, combinedShares, standaloneEps, proFormaEps, accretionPercent, blendedPe, valuationPe, combinedValue, valueCreated, buyerOwnership, changeInAShareholderWealth };
 }
 
 // Calculate the ownership split after offering B holders a premium in combined-company shares.
