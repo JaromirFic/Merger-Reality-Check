@@ -1,0 +1,73 @@
+:root { font-family: 'Avenir Next', 'Segoe UI', sans-serif; color: #17201d; background: #f6f7f5; font-synthesis: none; text-rendering: optimizeLegibility; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input { font: inherit; }
+.page-shell { max-width: 1180px; margin: 0 auto; padding: 30px 36px 24px; }
+.site-header { display: flex; align-items: center; gap: 12px; padding-bottom: 27px; border-bottom: 1px solid #e1e5e1; }
+.brand-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; color: #fff; background: #183f36; font: 800 19px 'Avenir Next', sans-serif; }
+.brand-mark span { color: #c6ed85; }
+.site-header h1 { font: 700 16px 'Avenir Next', sans-serif; margin: 1px 0 0; letter-spacing: -.02em; }
+.eyebrow { margin: 0; color: #65736d; text-transform: uppercase; font-size: 10px; font-weight: 700; letter-spacing: .12em; }
+.site-header .eyebrow { font-size: 9px; }
+.intro { padding: 39px 0 28px; max-width: 740px; }
+.intro h2, .tool-heading h2 { font: 600 clamp(25px, 3vw, 34px)/1.19 'Avenir Next', sans-serif; letter-spacing: -.045em; margin: 9px 0; }
+.intro > p:last-child, .tool-heading > div > p:last-child { color: #68746e; font-size: 14px; margin: 0; line-height: 1.6; }
+.tabs { display: flex; gap: 5px; padding: 5px; width: max-content; border: 1px solid #e4e8e4; border-radius: 12px; background: #eef0ed; }
+.tab { border: 0; background: transparent; color: #69746e; padding: 10px 14px; border-radius: 8px; cursor: pointer; font-size: 11px; font-weight: 700; }
+.tab span { padding-left: 6px; font-size: 12px; }
+.tab.active { color: #173a31; background: #fff; box-shadow: 0 1px 3px #17201d14; }
+.tool-heading { display: flex; align-items: flex-end; justify-content: space-between; padding: 31px 0 19px; }
+.tool-heading h2 { font-size: 24px; margin: 7px 0 5px; }
+.tool-heading > div > p:last-child { font-size: 12px; }
+.tool-index { color: #8a958e; font-size: 10px; padding-bottom: 4px; white-space: nowrap; }
+.calculator-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 16px; align-items: stretch; }
+.panel { background: #fff; border: 1px solid #e8ebe7; border-radius: 14px; padding: 21px; box-shadow: 0 4px 16px #1b2c2110; }
+.panel-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.panel-heading h3 { font: 700 16px 'Avenir Next', sans-serif; margin: 4px 0 0; letter-spacing: -.02em; }
+.unit-note, .result-chip { color: #7b8780; font-size: 10px; }
+.result-chip { color: #326251; background: #eef6ee; padding: 6px 9px; border-radius: 20px; }
+.company-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.company-card { min-width: 0; background: #fafbf9; border: 1px solid #edf0ec; border-radius: 10px; padding: 13px; }
+.company-card h4 { display: flex; align-items: center; gap: 7px; margin: 0 0 13px; font: 700 12px 'Avenir Next', sans-serif; }
+.company-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex: 0 0 8px; }
+.company-dot.a { background: #285c4d; }.company-dot.b { background: #d0a64b; }
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; color: #536159; font-size: 10px; font-weight: 600; }
+.company-card .field:last-child { margin-bottom: 0; }
+.input-wrap { display: flex; align-items: center; border: 1px solid #e4e8e3; border-radius: 7px; background: #fff; padding: 0 9px; min-width: 0; }
+.input-wrap:focus-within { outline: 2px solid #b6d8c8; border-color: #77a58f; }
+.input-wrap input { width: 100%; min-width: 0; border: 0; outline: 0; padding: 9px 0; color: #1f3029; font-size: 12px; background: transparent; }
+.input-wrap > span { color: #88928d; font-size: 9px; white-space: nowrap; }
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button { opacity: .45; }
+.deal-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+.deal-inputs .field { margin: 0; }
+.field small, .deal-inputs > small { color: #89948e; font-size: 9px; font-weight: 400; line-height: 1.4; }
+.single-input { display: block; max-width: 260px; }
+.single-input .field { margin-bottom: 5px; }
+.error-message { color: #a93535; background: #fff4f1; border-radius: 7px; padding: 9px 11px; font-size: 11px; margin: 13px 0 0; }
+.headline-result { display: flex; align-items: center; justify-content: space-between; background: #f5f8f4; border-radius: 10px; padding: 14px; margin-bottom: 13px; }
+.headline-result > div:first-child { display: grid; gap: 5px; }
+.headline-result span { color: #718078; font-size: 9px; }
+.headline-result strong { font: 700 28px 'Avenir Next', sans-serif; letter-spacing: -.04em; }
+.positive { color: #28684e; }.negative { color: #a4473a; }
+.eps-compare { display: grid; grid-template-columns: auto auto; align-items: center; gap: 5px 12px; }
+.eps-compare b { color: #273c33; font-size: 11px; text-align: right; }
+.result-list { border-top: 1px solid #edf0ed; }
+.result-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid #f0f2ef; font-size: 10px; }
+.result-row span { color: #748078; }.result-row b { color: #293b33; font-size: 10px; text-align: right; }
+.insight { background: #eff6f0; color: #345748; border-left: 3px solid #77a88c; border-radius: 4px; padding: 11px 12px; font-size: 10px; line-height: 1.55; margin: 14px 0 0; }
+.insight.warning { background: #fff8e9; border-color: #d1a749; color: #6d592b; }
+.ownership-bar { display: flex; overflow: hidden; height: 13px; border-radius: 20px; background: #eee; margin: 8px 0 13px; }
+.ownership-bar span:first-child { background: #285c4d; }.ownership-bar span:last-child { background: #d0a64b; }
+.ownership-legend { display: flex; justify-content: space-between; padding-bottom: 17px; }
+.ownership-legend > div { display: grid; grid-template-columns: 10px auto; gap: 5px 7px; align-items: center; color: #718078; font-size: 10px; }
+.ownership-legend strong { grid-column: 2; color: #233b31; font: 700 22px 'Avenir Next', sans-serif; letter-spacing: -.03em; }
+.ownership-legend .company-dot { grid-row: span 2; align-self: start; margin-top: 3px; }
+.control-note { color: #748078; font-size: 10px; line-height: 1.5; margin: 12px 0 0; }
+.formula-details { background: #fff; border: 1px solid #e8ebe7; border-radius: 10px; margin-top: 15px; padding: 13px 16px; }
+.formula-details summary { cursor: pointer; color: #29463a; font-size: 11px; font-weight: 700; }
+.formula-details p { max-width: 900px; color: #69766e; font-size: 11px; line-height: 1.7; margin: 10px 0 1px; }
+.threshold-note { color: #77837b; font-size: 10px; line-height: 1.55; margin: 10px 2px 0; }
+footer { display: flex; justify-content: space-between; color: #79847d; font-size: 9px; padding-top: 23px; }
+footer span { color: #9aa39d; }
+@media (max-width: 820px) { .page-shell { padding: 23px 22px; }.calculator-grid { grid-template-columns: 1fr; }.intro { padding-top: 30px; }.tool-heading { padding-top: 25px; } }
+@media (max-width: 520px) { .page-shell { padding: 18px 15px; }.intro h2 { font-size: 27px; }.tabs { width: 100%; }.tab { flex: 1; padding: 10px 7px; }.tab span { padding-left: 3px; font-size: 11px; }.company-grid { grid-template-columns: 1fr; }.company-card { padding: 12px; }.company-card .field { display: grid; grid-template-columns: 1fr 135px; align-items: center; }.company-card .input-wrap input { padding: 8px 0; }.deal-inputs { grid-template-columns: 1fr; }.tool-heading { align-items: flex-start; }.tool-index { padding-top: 4px; }.panel { padding: 16px; }.headline-result { align-items: flex-start; flex-direction: column; gap: 12px; }.eps-compare { width: 100%; grid-template-columns: 1fr auto; }.ownership-legend strong { font-size: 19px; }footer { gap: 12px; flex-direction: column; } }
